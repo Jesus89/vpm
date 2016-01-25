@@ -11,3 +11,9 @@ pip install voh
 ```bash
 voh user repo
 ```
+
+Example
+
+```bash
+voh Jesus89 verilog-test
+```
