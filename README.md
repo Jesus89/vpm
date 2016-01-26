@@ -1,5 +1,7 @@
 # Verilog package manager
 
+Proof of concept
+
 ## Installation
 
 ```bash

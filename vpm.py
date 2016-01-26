@@ -6,12 +6,12 @@
 VPM is a Verilog package manager based on GitHub.
 Usage:
 
- * npm list
+ * vpm list
 
- * npm clear
+ * vpm clear
 
- * npm install id
- * npm install user/repo
+ * vpm install id
+ * vpm install user/repo
 
 """
 
@@ -186,8 +186,7 @@ def _download_source(name, source):
             print('Error :' + str(e))
 
 
-if __name__ == '__main__':
-
+def main():
     # Parse arguments
     args = parse_arguments()
 
@@ -206,3 +205,6 @@ if __name__ == '__main__':
     # Install dependencies
     if not args.list and not args.clear and not args.install:
         install_package()
+
+if __name__ == '__main__':
+    main()
