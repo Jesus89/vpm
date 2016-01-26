@@ -18,7 +18,7 @@ Usage:
 __author__ = 'Jesús Arroyo Torrens'
 __email__ = 'jesus.arroyo@bq.com'
 __license__ = 'GPLv2'
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 import os
 import re
