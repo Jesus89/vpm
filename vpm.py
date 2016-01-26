@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# This file is part of the VOH Project
+# This file is part of the VPM Project
 
 """
-VOH is a Verilog package manager based on GitHub.
+VPM is a Verilog package manager based on GitHub.
 """
 
 __author__ = 'Jesús Arroyo Torrens'
@@ -14,7 +14,7 @@ __version__ = '0.0.1'
 
 def parse_arguments():
     import argparse
-    description = "VOH. Verilog Open Hardware package manager."
+    description = "VPM. Verilog package manager."
     parser = argparse.ArgumentParser(description=description)
 
     # Add dependency parameters
@@ -28,24 +28,37 @@ def parse_arguments():
     return args.user, args.repo
 
 
+def parse_json(filepath):
+    import json
+
+    # Load JSON file
+    with open(filepath) as json_file:
+        json_data = json.load(json_file)
+        if 'dependencies' in json_data:
+            for dep in json_data['dependencies']:
+                user, repo = dep.split('/')
+                print(user)
+                print(repo)
+
+
 def check_repository(user, repo):
     import urllib2
     try:
         # Try to connect to the repository
         urllib2.urlopen("https://github.com/" + user + "/" + repo)
         return True
-    except urllib2.HTTPError, e:
+    except urllib2.HTTPError as e:
         print("Error: " + str(e.code))
         return False
-    except urllib2.URLError, e:
+    except urllib2.URLError as e:
         print("Error: " + str(e.args))
         return False
 
 
 def git_clone(user, repo):
-    # Create voh_modules dir
+    # Create vpm_modules dir
     import os
-    path = os.path.join(os.getcwd(), "voh_modules")
+    path = os.path.join(os.getcwd(), "vpm_modules")
     if not os.path.exists(path):
         os.makedirs(path)
 

@@ -1,0 +1,7 @@
+{
+  "name": "example",
+  "author": "Jesus89",
+  "description": "blablabla",
+  "license": "GPLv2",
+  "dependencies" : ["Jesus89/verilog-test"]
+}

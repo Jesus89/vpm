@@ -2,18 +2,18 @@
 
 from setuptools import setup
 
-import imp
-voh = imp.load_source('voh', './voh')
+import vpm
 
-setup(name='voh',
-      version=voh.__version__,
-      description=voh.__doc__,
-      author=voh.__author__,
-      author_email=voh.__email__,
-      url='https://github.com/Jesus89/voh',
-      download_url='https://pypi.python.org/pypi/voh',
-      license=voh.__license__,
-      scripts=['voh'],
+setup(name='vpm',
+      version=vpm.__version__,
+      description=vpm.__doc__,
+      author=vpm.__author__,
+      author_email=vpm.__email__,
+      url='https://github.com/Jesus89/vpm',
+      download_url='https://pypi.python.org/pypi/vpm',
+      license=vpm.__license__,
+      py_modules=['vpm'],
+      scripts=['vpm.py'],
       install_requires=['gitpython==1.0.1'],
       classifiers=['Development Status :: 1 - Planning',
                    'Environment :: Console',

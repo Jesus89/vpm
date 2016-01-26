@@ -1,19 +1,19 @@
-# Verilog Open Hardware package manager
+# Verilog package manager
 
 ## Installation
 
 ```bash
-pip install voh
+pip install vpm
 ```
 
 ## Execute
 
 ```bash
-voh user repo
+vpm user repo
 ```
 
 Example
 
 ```bash
-voh Jesus89 verilog-test
+vpm Jesus89 verilog-test
 ```

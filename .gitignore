@@ -1,5 +1,4 @@
 build/
 dist/
-voh.egg-info/
-vohc
+vpm.egg-info/
 *.pyc
