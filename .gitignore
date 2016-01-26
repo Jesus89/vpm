@@ -1,4 +1,5 @@
 build/
 dist/
 vpm.egg-info/
+vpm_modules/
 *.pyc

@@ -6,14 +6,22 @@
 pip install vpm
 ```
 
-## Execute
+## Commands
 
 ```bash
-vpm user repo
+vpm -l
+
+vpm --list
 ```
 
-Example
+```bash
+vpm -i test
+
+vpm --install test
+```
 
 ```bash
-vpm Jesus89 verilog-test
+vpm -i Jesus89/verilog-test
+
+vpm --install Jesus89/verilog-test
 ```
