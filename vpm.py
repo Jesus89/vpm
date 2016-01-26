@@ -8,6 +8,8 @@ Usage:
 
  * npm list
 
+ * npm clear
+
  * npm install id
  * npm install user/repo
 
@@ -31,8 +33,10 @@ def parse_arguments():
     # Add dependency parameters
     parser.add_argument('-l', '--list', action='store_true', default=False,
                         help='List all official packages')
-    parser.add_argument('-i', '--install', metavar='package',
-                        help='Install package')
+    parser.add_argument('-c', '--clear', action='store_true', default=False,
+                        help='Clear all installed packages')
+    parser.add_argument('-i', '--install', metavar='pkg',
+                        help='Install package: "id" or "user/repo"')
 
     # Parse the arguments
     args = parser.parse_args()
@@ -64,6 +68,20 @@ def print_list(packages):
     for name in names:
         ret += ' * ' + name + '\n'
     pout(ret)
+
+
+def clear_packages():
+    import shutil
+    # Remove vpm_modules dir
+    path = os.path.join(os.getcwd(), "vpm_modules")
+    pout('Remove installed packages')
+    key = raw_input('Are you sure? [Y/N]: ')
+    if key == 'y' or key == 'Y':
+        if os.path.exists(path):
+            shutil.rmtree(path)
+        print('Done')
+    else:
+        print('Cancelled')
 
 
 def pout(output=None):
@@ -168,17 +186,6 @@ def _download_source(name, source):
             print('Error :' + str(e))
 
 
-def parse_json(filepath):
-    # Load JSON file
-    with open(filepath) as json_file:
-        json_data = json.load(json_file)
-        if 'dependencies' in json_data:
-            for dep in json_data['dependencies']:
-                user, repo = dep.split('/')
-                print(user)
-                print(repo)
-
-
 if __name__ == '__main__':
 
     # Parse arguments
@@ -188,10 +195,14 @@ if __name__ == '__main__':
     if args.list:
         print_list(list_packages())
 
+    # Clear
+    if args.clear:
+        clear_packages()
+
     # Install packages
     if args.install:
         install_package(args.install)
 
     # Install dependencies
-    if not args.list and not args.install:
+    if not args.list and not args.clear and not args.install:
         install_package()

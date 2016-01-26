@@ -9,19 +9,17 @@ pip install vpm
 ## Commands
 
 ```bash
-vpm -l
-
 vpm --list
 ```
 
 ```bash
-vpm -i test
+vpm --clear
+```
 
+```bash
 vpm --install test
 ```
 
 ```bash
-vpm -i Jesus89/verilog-test
-
 vpm --install Jesus89/verilog-test
 ```
