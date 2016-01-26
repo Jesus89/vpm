@@ -1,0 +1,10 @@
+{
+  "name": "example",
+  "version": "0.0.1",
+  "author": "Jesus89",
+  "description": "blablabla",
+  "license": "GPLv2",
+  "files": ["example.v"],
+  "dependencies" : ["dep", "Jesus89/verilog-dep"],
+  "tags": ["set", "bit"]
+}

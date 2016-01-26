@@ -1,0 +1,10 @@
+[
+    {
+        "name": "test",
+        "source": "https://github.com/Jesus89/verilog-test"
+    },
+    {
+        "name": "dep",
+        "source": "https://github.com/Jesus89/verilog-dep"
+    }
+]

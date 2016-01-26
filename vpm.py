@@ -1,6 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # This file is part of the VPM Project
+#
+#   Usage:
+#
+#   * npm install
+#   * npm install id
+#   * npm install user/repo
+#
+#   * npm list
+#
 
 """
 VPM is a Verilog package manager based on GitHub.
@@ -14,18 +23,27 @@ __version__ = '0.0.1'
 
 def parse_arguments():
     import argparse
-    description = "VPM. Verilog package manager."
+    description = 'VPM. Verilog package manager.'
     parser = argparse.ArgumentParser(description=description)
 
     # Add dependency parameters
-    parser.add_argument("user", help="GitHub user's name")
-    parser.add_argument("repo", help="GitHub repository's name")
+    parser.add_argument('-l', '--list', action='store_true', default=False,
+                        help='List all official packages')
+    parser.add_argument('-i', '--install', metavar='package',
+                        help='Install package')
 
     # Parse the arguments
     args = parser.parse_args()
 
-    # Return the user and the repo
-    return args.user, args.repo
+    return args
+
+
+def list_packages():
+    pass
+
+
+def install_package(package):
+    pass
 
 
 def parse_json(filepath):
@@ -56,7 +74,7 @@ def check_repository(user, repo):
 
 
 def git_clone(user, repo):
-    # Create vpm_modules dir
+    # Create vpm_modules dirg
     import os
     path = os.path.join(os.getcwd(), "vpm_modules")
     if not os.path.exists(path):
@@ -71,10 +89,13 @@ def git_clone(user, repo):
 if __name__ == '__main__':
 
     # Parse arguments
-    user, repo = parse_arguments()
+    args = parse_arguments()
 
-    # Check repository
-    if check_repository(user, repo):
+    # List
+    if args.list:
+        list_packages()
 
-        # Git clone repository
-        git_clone(user, repo)
+    # Install
+    if args.install:
+        package = args.install
+        install_package(package)
